@@ -1,0 +1,11 @@
+---
+
+concurrency: 4
+base: 'http://localhost:6667'
+iterations: 20
+delay_ms: 100
+
+plan:
+  - name: Fetch
+    request:
+      url: /?username=jsajldfkaskldfjaslsdfjsadflkasjdflsakjdfalsjdfsalkdjfaslsdfaskhjfdaksjdhfaskjdhfaskdjfhaskdjfhaskdjfhsadjkfhsakjdfhsajdkfh

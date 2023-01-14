@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "async-multithreaded",
+    "async-singlethreaded",
+    "sync-singlethreaded",
+    "sync-multithreaded",
+    "types",
+]

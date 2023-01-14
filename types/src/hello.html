@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Landing Page</title>
+  <style>
+    /* Global styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    /* Hero section styles */
+    .hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero h2 {
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero .cta {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #333;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    .hero .cta:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Features section styles */
+    .features {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+    .feature {
+      width: 30%;
+      text-align: center;
+    }
+    .feature i {
+      font-size: 48px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .feature h3 {
+      font-size: 24px;
+      color: #333;
+    }
+    .feature p {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* Testimonials section styles */
+    .testimonials {
+      background-color: #f5f5f5;
+      padding: 50px 0;
+    }
+    .testimonial {
+      text-align: center;
+    }
+    .testimonial img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .testimonial h4 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .testimonial p {
+      font-size: 16px;
+      color: #666;
+    }
+
+/* Testimonials section styles */
+.testimonials {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+.testimonial {
+  text-align: center;
+}
+.testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.testimonial h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+.testimonial p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Pricing section styles */
+.pricing {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.plan {
+  width: 30%;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.plan h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.plan .price {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.plan ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.plan ul li {
+  font-size: 18px;
+  color: #666;
+}
+.plan .cta {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.plan .cta:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+  <h1>My Landing Page</h1>
+</div>
+</header>
+<section class="hero">
+<div class="container">
+  <h2>Welcome to My Landing Page</h2>
+  <a href="#" class="cta">Learn More</a>
+</div>
+</section>
+<section class="features">
+<div class="container">
+  <div class="feature">
+    <i class="fas fa-cog"></i>
+    <h3>Easy to Use</h3>
+    <p>Our landing page is designed to be user-friendly and easy to navigate.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-thumbsup"></i>
+    <h3>Highly Customizable</h3>
+    <p>Our landing page offers a variety of customization options to help you make it your own.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-chart-line"></i>
+    <h3>Analytics Integration</h3>
+    <p>Track the performance of your landing page with built-in analytics integration.</p>
+  </div>
+</div>
+</section>
+<section class="testimonials">
+<div class="container">
+  <div class="testimonial">
+    <img src="avatar1.jpg" alt="Avatar">
+    <h4>John Doe</h4>
+    <p>I was really impressed with the ease of use and customization options of this landing page. It helped me to create a professional and effective landing page in no time.</p>
+  </div>
+  <div class="testimonial">
+    <img src="avatar2.jpg" alt="Avatar">
+    <h4>Jane Smith</h4>
+    <p>This landing page exceeded my expectations. The analytics integration helped me to track my progress and make data-driven decisions.</p>
+  </div>
+</div>
+</section>
+<section class="pricing">
+<div class="container">
+  <div class="plan">
+    <h3>Basic Plan</h3>
+    <div class="price">$19/mo</div>
+    <ul>
+      <li>Feature 1</li>
+      <li>Feature 2</li>
+    </ul>
+    <a href="#" class="cta">Sign Up</a>
+  </div>
+  <div class="plan">
+    <h3>Premium Plan</h3>
+    <div class="price">$49/mo</div>
+    <ul>
+      <li>Feature 1</li>
+      <li>Feature 2</li>
+      <li>Feature 3</li>
+    </ul>
+    <a href="#" class="cta">Sign Up</a>
+  </div>
+  <div class="plan">
+    <h3>Pro Plan</h3>
+    <div class="price">$99/mo</div>
+    <ul>
+      <li>Feature 1</li>
+      <li>Feature 2</li>
+      <li>Feature 3</li>
+      <li>Feature 4</li>
+    </ul>
+    <a href="#" class="cta">Sign Up</a>
+  </div>
+</div>
+</section>
+<footer>
+<p>Copyright &copy; My Landing Page</p>
+</footer>
+</body>
+</html>
+
