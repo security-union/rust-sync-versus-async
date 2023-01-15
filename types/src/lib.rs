@@ -1,14 +1,12 @@
-use rand::Rng;
-
 use std::{
     io::{prelude::*, BufReader},
-    net::{TcpListener, TcpStream},
-    thread::sleep,
-    time::Duration,
+    net::TcpStream
 };
 
+pub const SLEEP_TIME_MS: u64 = 100;
 pub const HTTP_RESPONSE_BODY: &str = include_str!("./hello.html");
 pub const ENDPOINT: &str = "127.0.0.1:6667";
+// pub const ENDPOINT: &str = "0.0.0.0:80";
 
 pub fn http_response() -> Vec<u8> {
     let status_line = "HTTP/1.1 200 OK";
@@ -19,10 +17,6 @@ pub fn http_response() -> Vec<u8> {
         .to_vec()
 }
 
-pub fn get_sleep_time() -> u64 {
-    rand::thread_rng().gen_range(100..1000)
-}
-
 pub fn sync_handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
     let _http_request: Vec<_> = buf_reader
@@ -31,8 +25,28 @@ pub fn sync_handle_connection(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
     // Simulate querying a database
-    sleep(Duration::from_millis(get_sleep_time()));
+    permute();
     let response = http_response();
 
     stream.write_all(&response).unwrap();
+}
+
+pub fn permute_string(s: &str, l: usize, r: usize, permutations: &mut Vec<String>) {
+    if l == r {
+        permutations.push(s.to_string());
+    } else {
+        for i in l..=r {
+            let mut chars: Vec<char> = s.chars().collect();
+            chars.swap(l, i);
+            permute_string(&chars.into_iter().collect::<String>(), l + 1, r, permutations);
+        }
+    }
+}
+
+
+pub fn permute() {
+    let mut permutations = Vec::new();
+    let s = "fjlka22";
+    let n = s.len();
+    permute_string(s, 0, n-1, &mut permutations);
 }

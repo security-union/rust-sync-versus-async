@@ -4,7 +4,7 @@ use tokio::{
     net::{TcpListener, TcpStream},
     time::sleep,
 };
-use types::{get_sleep_time, http_response};
+use types::{SLEEP_TIME_MS, http_response};
 
 pub struct AsyncTcpServer {
     listener: TcpListener,
@@ -31,7 +31,7 @@ impl AsyncTcpServer {
         match stream.try_read_buf(&mut buf) {
             Ok(_) => {
                 stream.writable().await?;
-                sleep(Duration::from_millis(get_sleep_time())).await;
+                types::permute();
                 stream.try_write(&http_response())?;
                 Ok(())
             }

@@ -1,11 +1,11 @@
 ---
 
-concurrency: 4
-base: 'http://localhost:6667'
-iterations: 20
-delay_ms: 100
+base: 'http://127.0.0.1:6667'
+concurrency: 500
+iterations: 10000
+delay_ms: 50
 
 plan:
   - name: Fetch
     request:
-      url: /?username=jsajldfkaskldfjaslsdfjsadflkasjdflsakjdfalsjdfsalkdjfaslsdfaskhjfdaksjdhfaskjdhfaskdjfhaskdjfhaskdjfhsadjkfhsakjdfhsajdkfh
+      url: /?username=jsajldfkaskldfjaslsdfjsadflkasjdflsakjdfalsjdfsalkdjfaslsdfaskhjfdaksjdhfaskjdhfaskdjfhaskdjfhaskdjfhsadjkfhsakjdfhsajdkfh&password=hunter22
