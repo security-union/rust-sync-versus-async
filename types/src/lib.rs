@@ -9,7 +9,7 @@ use tokio::time::sleep as tokio_sleep;
 
 pub const SLEEP_TIME_MS: u64 = 100;
 pub const HTTP_RESPONSE_BODY: &str = include_str!("./hello.html");
-pub const ENDPOINT: &str = "127.0.0.1:6667";
+pub const ENDPOINT: &str = "0.0.0.0:80";
 
 lazy_static! {
     pub static ref CHALLENGE: String =
