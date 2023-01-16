@@ -1,8 +1,5 @@
-use std::time::Duration;
-
 use tokio::{
     net::{TcpListener, TcpStream},
-    time::sleep,
 };
 use types::{SLEEP_TIME_MS, http_response};
 
@@ -31,7 +28,7 @@ impl AsyncTcpServer {
         match stream.try_read_buf(&mut buf) {
             Ok(_) => {
                 stream.writable().await?;
-                types::permute();
+                types::async_run_challenge().await;
                 stream.try_write(&http_response())?;
                 Ok(())
             }

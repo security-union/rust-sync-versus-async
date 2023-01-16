@@ -1,12 +1,17 @@
 use std::{
     io::{prelude::*, BufReader},
-    net::TcpStream
+    net::TcpStream, thread::sleep, time::Duration
 };
+use lazy_static::lazy_static;
+use tokio::time::sleep as tokio_sleep;
 
 pub const SLEEP_TIME_MS: u64 = 100;
 pub const HTTP_RESPONSE_BODY: &str = include_str!("./hello.html");
 pub const ENDPOINT: &str = "127.0.0.1:6667";
-// pub const ENDPOINT: &str = "0.0.0.0:80";
+
+lazy_static! {
+    pub static ref CHALLENGE: String = std::env::var("CHALLENGE").unwrap_or_else(|_| "STATIC_WEBSITE".to_string());
+}
 
 pub fn http_response() -> Vec<u8> {
     let status_line = "HTTP/1.1 200 OK";
@@ -24,12 +29,12 @@ pub fn sync_handle_connection(mut stream: TcpStream) {
         .map(|result| result.unwrap())
         .take_while(|line| !line.is_empty())
         .collect();
-    // Simulate querying a database
-    permute();
+    sync_run_challenge();
     let response = http_response();
 
     stream.write_all(&response).unwrap();
 }
+
 
 pub fn permute_string(s: &str, l: usize, r: usize, permutations: &mut Vec<String>) {
     if l == r {
@@ -43,6 +48,23 @@ pub fn permute_string(s: &str, l: usize, r: usize, permutations: &mut Vec<String
     }
 }
 
+pub fn sync_run_challenge() {
+    match CHALLENGE.as_str() {
+        "STATIC_WEBSITE" => {
+            sleep(Duration::from_millis(SLEEP_TIME_MS));
+        }
+        _ => permute()
+    }
+}
+
+pub async fn async_run_challenge() {
+    match CHALLENGE.as_str() {
+        "STATIC_WEBSITE" => {
+            tokio_sleep(Duration::from_millis(SLEEP_TIME_MS)).await;
+        }
+        _ => permute()
+    }
+}
 
 pub fn permute() {
     let mut permutations = Vec::new();
