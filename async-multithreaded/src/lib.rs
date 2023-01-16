@@ -1,7 +1,5 @@
-use tokio::{
-    net::{TcpListener, TcpStream},
-};
-use types::{SLEEP_TIME_MS, http_response};
+use tokio::net::{TcpListener, TcpStream};
+use types::http_response;
 
 pub struct AsyncTcpServer {
     listener: TcpListener,
